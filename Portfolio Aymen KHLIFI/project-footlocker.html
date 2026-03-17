@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet : Jeu Foot Locker — Aymen KHLIFI</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F8F8;
+      --surface: #FFFFFF;
+      --accent: #006039;
+      --gold: #C5A059;
+      --text: #111111;
+      --muted: #555555;
+      --font-title: 'Playfair Display', serif;
+      --font-text: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-text);
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }
+
+    nav {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateX(-5px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 5%;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .proj-type {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .project-gallery {
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      background: white;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    h2 {
+      font-family: var(--font-title);
+      color: var(--accent);
+      margin: 2.5rem 0 1.5rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .sidebar {
+      background: white;
+      padding: 2rem;
+      border: 1px solid #eee;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .sidebar-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+      background: var(--bg);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="back-link">← Retour au portfolio</a>
+    <div style="font-family: var(--font-title); font-weight: 700; color: var(--accent);">AK.</div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <div class="proj-type">Data & Gamification <!-- METTEZ ICI LE TYPE DE PROJET --></div>
+      <h1>Jeu Foot Locker — Collecte de Données <!-- METTEZ ICI LE TITRE DU PROJET --></h1>
+    </header>
+
+    <div class="project-gallery">
+      <!-- GALERIE D'IMAGES : REMPLACEZ LES LIENS DANS LE src="" CI-DESSOUS PAR VOS PROPRES LIENS D'IMAGES -->
+
+      <div class="gallery-item">
+        <!-- METTEZ VOTRE LIEN D'IMAGE 1 ICI -->
+        <img src="img1.jpg" alt="Capture 1">
+        <div class="gallery-caption">Écran d'accueil - Tente ta chance <!-- LÉGENDE 1 --></div>
+      </div>
+
+      <div class="gallery-item">
+        <!-- METTEZ VOTRE LIEN D'IMAGE 2 ICI -->
+        <img src="img2.jpg" alt="Capture 2">
+        <div class="gallery-caption">Slot Locker - Le mini-jeu <!-- LÉGENDE 2 --></div>
+      </div>
+
+      <div class="gallery-item">
+        <!-- METTEZ VOTRE LIEN D'IMAGE 3 ICI -->
+        <img src="img3.jpg" alt="Capture 3">
+        <div class="gallery-caption">Formulaire de collecte de données <!-- LÉGENDE 3 --></div>
+      </div>
+
+      <div class="gallery-item">
+        <!-- METTEZ VOTRE LIEN D'IMAGE 4 ICI -->
+        <img src="img4.jpg" alt="Capture 4">
+        <div class="gallery-caption">Validation des conditions <!-- LÉGENDE 4 --></div>
+      </div>
+
+      <div class="gallery-item">
+        <!-- METTEZ VOTRE LIEN D'IMAGE 5 ICI -->
+        <img src="img5.jpg" alt="Capture 5">
+        <div class="gallery-caption">Résultat final <!-- LÉGENDE 5 --></div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="main-content">
+        <h2>À propos du projet</h2>
+        <p>
+          <!-- METTEZ ICI VOTRE DESCRIPTION DU PROJET -->
+          Ce projet a été réalisé dans le but de moderniser l'acquisition de données pour Foot Locker. Au lieu d'un
+          formulaire classique, nous avons opté pour une approche de "gamification".
+        </p>
+        <p>
+          Les utilisateurs participent à un mini-jeu interactif inspiré de l'univers du basketball. En fin de session,
+          des récompenses sont offertes en échange d'informations de profilage.
+        </p>
+
+        <h2>Approche Technique</h2>
+        <p>
+          <!-- EXPLIQUEZ COMMENT VOUS AVEZ FAIT (LES OUTILS, LES ALGORITHMES...) -->
+          L'interface a été développée en JavaScript pur pour garantir une performance optimale sur mobile. En
+          coulisses, un script Python traite les flux de données pour identifier les segments de clients les plus
+          engagés.
+        </p>
+
+        <h2>Résultats Clés</h2>
+        <ul style="padding-left: 1.5rem; color: var(--muted);">
+          <!-- LISTEZ ICI VOS RÉSULTATS (KPIs, SUCCÈS...) -->
+          <li style="margin-bottom: 1rem;">Augmentation du taux de complétion des profils de 45% par rapport aux
+            méthodes traditionnelles.</li>
+          <li style="margin-bottom: 1rem;">Collecte de données comportementales inédites (temps de réaction, préférences
+            visuelles directes).</li>
+          <li style="margin-bottom: 1rem;">Mise en place d'un dashboard marketing en temps réel.</li>
+        </ul>
+      </div>
+
+      <aside class="sidebar">
+        <span class="sidebar-title">Technologies Utilisées</span>
+        <div class="tech-stack">
+          <!-- AJOUTEZ OU CHANGEZ LES TECHNOLOGIES UTILISÉES ICI -->
+          <span class="tech-tag">HTML5 / CSS3</span>
+          <span class="tech-tag">JavaScript (ES6+)</span>
+        </div>
+
+        <span class="sidebar-title">Rôle</span>
+        <p style="font-size: 0.9rem;">Lead Developer & Data strategy</p>
+
+        <span class="sidebar-title">Année</span>
+        <p style="font-size: 0.9rem;">2026</p>
+      </aside>
+    </div>
+  </div>
+
+</body>
+
+</html>

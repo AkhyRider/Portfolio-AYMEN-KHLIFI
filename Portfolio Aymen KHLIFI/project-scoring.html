@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet : Score de Qualité Pondéré — Aymen KHLIFI</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F8F8;
+      --surface: #FFFFFF;
+      --accent: #006039;
+      --gold: #C5A059;
+      --text: #111111;
+      --muted: #555555;
+      --font-title: 'Playfair Display', serif;
+      --font-text: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-text);
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }
+
+    nav {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateX(-5px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 5%;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .proj-type {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .chart-placeholder {
+      width: 100%;
+      height: 350px;
+      background: white;
+      margin: 3rem 0;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .bar-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      height: 150px;
+      margin-bottom: 1rem;
+    }
+
+    .bar {
+      width: 30px;
+      background: var(--accent);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .project-gallery {
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      background: white;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    h2 {
+      font-family: var(--font-title);
+      color: var(--accent);
+      margin: 2.5rem 0 1.5rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .sidebar {
+      background: white;
+      padding: 2rem;
+      border: 1px solid #eee;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .sidebar-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+      background: var(--bg);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="back-link">← Retour au portfolio</a>
+    <div style="font-family: var(--font-title); font-weight: 700; color: var(--accent);">AK.</div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <div class="proj-type">Modélisation & Stats <!-- METTEZ ICI LE TYPE DE PROJET --></div>
+      <h1>Score de Qualité Pondéré <!-- METTEZ ICI LE TITRE DU PROJET --></h1>
+    </header>
+
+    <div class="project-gallery">
+      <!-- IMAGE UNIQUE : REMPLACEZ LE LIEN DANS LE src="" CI-DESSOUS PAR VOTRE LIEN DE RÉSULTAT/GRAPHE -->
+      <div class="gallery-item">
+        <!-- METTEZ VOTRE LIEN D'IMAGE ICI -->
+        <img src="anime.jpg" alt="Résultat Score de Qualité">
+        <div class="gallery-caption">Visualisation des résultats de l'algorithme de scoring <!-- LÉGENDE --></div>
+      </div>
+    </div>
+
+    <div class="chart-placeholder">
+      <!-- CE GRAPHIQUE EST FICTIF - VOUS POUVEZ LE GARDER EN COMPLÉMENT OU LE SUPPRIMER -->
+      <div class="bar-container">
+        <div class="bar" style="height: 60%"></div>
+        <div class="bar" style="height: 85%"></div>
+        <div class="bar" style="height: 45%"></div>
+        <div class="bar" style="height: 95%; background: var(--gold);"></div>
+        <div class="bar" style="height: 70%"></div>
+      </div>
+      <p style="font-size: 0.8rem; color: #999;">Visualisation de la distribution des scores</p>
+    </div>
+
+    <div class="content-grid">
+      <div class="main-content">
+        <h2>Objectif Business</h2>
+        <p>
+          <!-- DÉCRIVEZ L'OBJECTIF COMMERCIAL/MÉTIER -->
+          L'entreprise cliente possédait des milliers de ressources vidéos mais n'avait aucun moyen objectif de
+          déterminer lesquelles étaient les plus "rentables" en termes d'attention utilisateur au-delà du simple nombre
+          de clics.
+        </p>
+
+        <h2>Méthodologie</h2>
+        <p>
+          <!-- EXPLIQUEZ VOS FORMULES OU MÉTHODES STATISTIQUES -->
+          J'ai développé un algorithme de score pondéré prenant en compte :
+          <br>• La <strong>Portée</strong> (Volume d'audience) - 60%
+          <br>• La <strong>Rétention</strong> (Temps passé) - 40%
+        </p>
+        <p>
+          Cette approche permet d'éviter de mettre en avant des contenus "clickbait" à forte audience mais faible
+          intérêt réel.
+        </p>
+
+        <h2>Impact</h2>
+        <ul style="padding-left: 1.5rem; color: var(--muted);">
+          <!-- LISTEZ LES IMPACTS CONCRETS -->
+          <li style="margin-bottom: 1rem;">Optimisation du catalogue de 20% en supprimant les contenus à faible score.
+          </li>
+          <li style="margin-bottom: 1rem;">Meilleure allocation du budget publicitaire.</li>
+          <li style="margin-bottom: 1rem;">Outil de prédiction de succès pour les futures productions.</li>
+        </ul>
+      </div>
+
+      <aside class="sidebar">
+        <span class="sidebar-title">Outils & Concepts</span>
+        <div class="tech-stack">
+          <span class="tech-tag">Scikit-learn</span>
+          <span class="tech-tag">Statistiques Descriptives</span>
+          <span class="tech-tag">Matplotlib</span>
+          <span class="tech-tag">Business Analytics</span>
+        </div>
+
+        <span class="sidebar-title">Domaine</span>
+        <p style="font-size: 0.9rem;">Multimedia & Marketing IA</p>
+
+        <span class="sidebar-title">Lieu</span>
+        <p style="font-size: 0.9rem;">HETIC (Projet Académique/Pro)</p>
+      </aside>
+    </div>
+  </div>
+
+</body>
+
+</html>

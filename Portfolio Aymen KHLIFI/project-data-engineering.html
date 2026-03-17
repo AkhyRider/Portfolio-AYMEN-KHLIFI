@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet : Nettoyage & Feature Engineering — Aymen KHLIFI</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F8F8;
+      --surface: #FFFFFF;
+      --accent: #006039;
+      --gold: #C5A059;
+      --text: #111111;
+      --muted: #555555;
+      --font-title: 'Playfair Display', serif;
+      --font-text: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-text);
+      line-height: 1.6;
+      padding-bottom: 5rem;
+    }
+
+    nav {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateX(-5px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 5%;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .proj-type {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--accent);
+      line-height: 1.2;
+    }
+
+    .code-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 2rem;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      margin: 3rem 0;
+      overflow-x: auto;
+      border-left: 4px solid var(--accent);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    h2 {
+      font-family: var(--font-title);
+      color: var(--accent);
+      margin: 2.5rem 0 1.5rem;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .gallery-caption {
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .project-gallery {
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      background: white;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .sidebar {
+      background: white;
+      padding: 2rem;
+      border: 1px solid #eee;
+      height: fit-content;
+      position: sticky;
+      top: 2rem;
+    }
+
+    .sidebar-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-tag {
+      background: var(--bg);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="back-link">← Retour au portfolio</a>
+    <div style="font-family: var(--font-title); font-weight: 700; color: var(--accent);">AK.</div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <div class="proj-type">Data Engineering <!-- METTEZ ICI LE TYPE DE PROJET --></div>
+      <h1>Nettoyage & Feature Engineering <!-- METTEZ ICI LE TITRE DU PROJET --></h1>
+    </header>
+
+    <div class="project-gallery">
+      <!-- IMAGE UNIQUE : REMPLACEZ LE LIEN DANS LE src="" CI-DESSOUS PAR VOTRE LIEN D'IMAGE -->
+      <div class="gallery-item">
+        <img src="nettoyer.jpg" alt="Visuel Projet Data Engineering">
+        <div class="gallery-caption">Visualisation du pipeline ou du nettoyage de données <!-- LÉGENDE --></div>
+      </div>
+    </div>
+    <pre>
+def clean_dataset(df):
+    # Traitement des valeurs manquantes
+    df['age'] = df['age'].fillna(df['age'].median())
+    
+    # Détection des outliers (méthode IQR)
+    Q1 = df['score'].quantile(0.25)
+    Q3 = df['score'].quantile(0.75)
+    IQR = Q3 - Q1
+    df = df[~((df['score'] < (Q1 - 1.5 * IQR)))]
+    
+    # Feature Engineering
+    df['engagement_rate'] = df['clicks'] / df['impressions']
+    return df
+</pre>
+  </div>
+
+  <div class="content-grid">
+    <div class="main-content">
+      <h2>Défis du projet</h2>
+      <p>
+        <!-- DÉCRIVEZ LES DIFFICULTÉS RENCONTRÉES -->
+        Ce projet portait sur la manipulation de jeux de données massifs (plusieurs millions de lignes) issus de logs
+        serveurs. La problématique majeure consistait à transformer des données brutes "sales" en variables prêtes
+        pour l'entraînement de modèles de Machine Learning.
+      </p>
+
+      <h2>Solution Implémentée</h2>
+      <p>
+        <!-- EXPLIQUEZ VOTRE SOLUTION -->
+        J'ai mis en place des pipelines automatisés utilisant Pandas et NumPy. L'accent a été mis sur la robustesse du
+        code pour gérer les valeurs nulles imprévues et les types de données incohérents.
+      </p>
+
+      <h2>Apports Techniques</h2>
+      <ul style="padding-left: 1.5rem; color: var(--muted);">
+        <!-- LISTEZ VOS RÉUSSITES TECHNIQUES -->
+        <li style="margin-bottom: 1rem;">Réduction du temps de nettoyage de 70% grâce à la vectorisation.</li>
+        <li style="margin-bottom: 1rem;">Création de 12 nouvelles features prédictives basées sur des corrélations
+          statistiques.</li>
+        <li style="margin-bottom: 1rem;">Normalisation des données pour assurer l'équité des modèles de clustering.
+        </li>
+      </ul>
+    </div>
+
+    <aside class="sidebar">
+      <span class="sidebar-title">Technologies Utilisées</span>
+      <div class="tech-stack">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">NumPy</span>
+        <span class="tech-tag">Seaborn (Profiling)</span>
+      </div>
+
+      <span class="sidebar-title">Expertise</span>
+      <p style="font-size: 0.9rem;">Data Pipeline Engineering</p>
+
+      <span class="sidebar-title">Status</span>
+      <p style="font-size: 0.9rem;">Open Source Ready</p>
+    </aside>
+  </div>
+  </div>
+
+</body>
+
+</html>

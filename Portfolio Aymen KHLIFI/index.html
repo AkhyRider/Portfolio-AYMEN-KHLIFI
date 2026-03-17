@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- RÉFÉRENCEMENT & PARTAGE (SEO) -->
+  <title>Aymen KHLIFI — Data & IA</title>
+  <meta name="description"
+    content="Portfolio de Aymen Khlifi, étudiant en Data & Intelligence Artificielle à HETIC. Découvrez mes projets en Python, Data Analysis et Machine Learning.">
+  <meta name="author" content="Aymen Khlifi">
+  <meta name="keywords"
+    content="Data, IA, Intelligence Artificielle, Python, HETIC, Aymen Khlifi, Portfolio, Data Analyst">
+
+  <!-- OPEN GRAPH (Pour un joli aperçu sur LinkedIn/WhatsApp) -->
+  <meta property="og:title" content="Aymen KHLIFI — Data & IA">
+  <meta property="og:description"
+    content="Étudiant Data & IA. Allier la rigueur de l'économie à la puissance de la donnée.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/AkhyRider"> <!-- Lien vers votre GitHub par défaut -->
+  <!-- Vous pourrez remplacer cette URL par celle de votre site final -->
+
+  <!-- FAVICON (Icône AK dans l'onglet) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-weight=%22bold%22 font-family=%22serif%22 fill=%22%23006039%22>AK</text></svg>">
+
+  <!-- Import des polices : Playfair Display (Titres + Italiques) et Inter (Texte) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Palette Rolex / Luxe */
+      --bg: #F8F8F8;
+      /* Gris perle très subtil pour un fond homogène */
+      --surface: #FFFFFF;
+      /* Les surfaces deviennent blanches pour ressortir */
+      --card: #FFFFFF;
+      --border: #E0E0E0;
+
+      /* Vert Couronne Rolex */
+      --accent: #006039;
+      /* Or subtil pour les détails */
+      --gold: #C5A059;
+
+      --text: #111111;
+      --muted: #555555;
+
+      /* Font Families */
+      --font-title: 'Playfair Display', serif;
+      --font-text: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+
+      /* Blanc pur pour se distinguer du fond gris perle + Ombre douce */
+      background: #FFFFFF;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+      /* Touche dorée très subtile */
+
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      font-size: 0.75rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      z-index: 1;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Centrage global */
+      padding: 8rem 5% 4rem;
+      background: transparent;
+      text-align: center;
+      /* Centrage du texte */
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Flex centré */
+    }
+
+    /* Style décoratif supérieur */
+    .hero-top-decoration {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-text);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      opacity: 0.9;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-top-decoration::before,
+    .hero-top-decoration::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-name {
+      font-family: var(--font-title);
+      font-weight: 400;
+      /* Poids régulier */
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      /* Noir pour le prénom */
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .hero-name span {
+      font-family: var(--font-title);
+      color: var(--gold);
+      /* Or pour le nom */
+      font-style: italic;
+      /* Italique élégant */
+      font-weight: 400;
+    }
+
+    .hero-title {
+      font-family: var(--font-text);
+      font-size: 1.1rem;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+      max-width: 700px;
+    }
+
+    .hero-about {
+      max-width: 650px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+      animation: fadeUp 0.8s 0.3s ease both;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-family: var(--font-text);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 0;
+      /* Carré luxe */
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: #004d2e;
+      border-color: #004d2e;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ── INTERACTIVE CONTACT BUTTON STYLES ── */
+    @keyframes gentleShake {
+      0% {
+        transform: scale(1.05) rotate(0deg);
+      }
+
+      25% {
+        transform: scale(1.05) rotate(-3deg);
+      }
+
+      50% {
+        transform: scale(1.05) rotate(3deg);
+      }
+
+      75% {
+        transform: scale(1.05) rotate(-3deg);
+      }
+
+      100% {
+        transform: scale(1.05) rotate(0deg);
+      }
+    }
+
+    .contact-btn-interactive {
+      position: relative;
+      overflow: hidden;
+      min-width: 200px;
+      /* Largeur de base stable */
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-btn-interactive:hover {
+      transform: scale(1.05);
+      background: var(--accent);
+      color: white;
+      animation: gentleShake 0.4s ease-in-out;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .contact-btn-interactive .btn-text {
+      display: block;
+    }
+
+    .contact-btn-interactive:hover .btn-text {
+      display: none;
+    }
+
+    .contact-btn-interactive .btn-reveal {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    .contact-btn-interactive:hover .btn-reveal {
+      display: flex;
+    }
+
+    .contact-btn-interactive .btn-reveal a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-btn-interactive .btn-reveal a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    .contact-btn-interactive .btn-reveal .separator {
+      color: var(--gold);
+      font-weight: 300;
+    }
+
+
+    /* ── SECTIONS GLOBAL ── */
+    section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      border-left: 4px solid var(--gold);
+      padding-left: 1.5rem;
+    }
+
+    .section-num {
+      font-family: var(--font-text);
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--accent);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 96, 57, 0.1);
+      border-color: var(--accent);
+    }
+
+    .skill-card-label {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    /* ── PROJETS ── */
+    .proj-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+      display: grid;
+      grid-template-columns: 1fr;
+      text-decoration: none;
+      /* Remove underline from link */
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0, 96, 57, 0.15);
+    }
+
+    /* Hover color changes for elements inside the card */
+    .proj-card:hover .proj-title {
+      color: var(--accent);
+    }
+
+    .proj-card:hover .proj-type {
+      color: var(--accent);
+    }
+
+    .proj-card:hover .doc-title {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .proj-card:hover .doc-text,
+    .proj-card:hover .doc-list li {
+      color: var(--text);
+    }
+
+    .proj-card::after {
+      content: 'Voir le projet →';
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .proj-card:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .proj-header {
+      padding: 2.5rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .proj-type {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .proj-title {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .proj-tech {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .tech-item {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.8rem;
+      border-radius: 2px;
+    }
+
+    /* STRUCTURE DOCUMENT STYLE */
+    .proj-content {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .doc-section {
+      margin-bottom: 1rem;
+    }
+
+    .doc-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.2rem;
+    }
+
+    .doc-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .doc-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .doc-list li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .doc-list li::before {
+      content: '•';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .contact-icon {
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    .lang-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .lang-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .lang-name {
+      font-weight: 600;
+      font-family: var(--font-title);
+    }
+
+    .lang-lvl {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .lang-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      position: relative;
+    }
+
+    .lang-fill {
+      height: 100%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer span {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .brand {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      #hero {
+        padding: 6rem 1.5rem 3rem;
+      }
+
+      .hero-name {
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .proj-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">AK.</div>
+    <ul class="nav-links">
+      <li><a href="#about">À propos</a></li>
+      <li><a href="#skills">Expertise</a></li>
+      <li><a href="#projects">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div id="about">
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-top-decoration">DATA & INTELLIGENCE ARTIFICIELLE</div>
+
+        <h1 class="hero-name">Aymen <span>Khlifi</span></h1>
+
+        <p class="hero-title">Disponible — Paris & alentours</p>
+
+        <p class="hero-about">
+          Transformer la donnée brute en intelligence actionnable. Je conçois des solutions analytiques précises pour
+          transformer l'information en décision stratégique.
+        </p>
+        <div class="hero-cta">
+          <a href="https://github.com/AkhyRider" target="_blank" class="btn btn-primary">Découvrir mes travaux</a>
+
+          <div class="btn btn-outline contact-btn-interactive">
+            <span class="btn-text">Me contacter</span>
+            <div class="btn-reveal">
+              <a href="tel:0783891689">07 83 89 16 89</a>
+              <span class="separator">|</span>
+              <a href="mailto:khlifia381@gmail.com">Email</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SKILLS (01) -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Expertise Technique</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-label">Analyse & Data</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas & Numpy</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">Scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Visualisation</div>
+        <div class="skill-tags">
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Tableaux de bord</span>
+          <span class="tag">Storytelling Data</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Web & Outils</div>
+        <div class="skill-tags">
+          <span class="tag">Jupyter</span>
+          <span class="tag">Git</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">Figma</span>
+          <span class="tag">VS Code</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">Business & Stratégie</div>
+        <div class="skill-tags">
+          <span class="tag">Business Intelligence</span>
+          <span class="tag">Supply Chain Analytics</span>
+          <span class="tag">Project Management</span>
+          <span class="tag">CRM & Segmentation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS (02) -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Sélection de Projets</h2>
+    </div>
+
+    <div class="proj-grid">
+
+      <!-- PROJET 1 -->
+      <a href="project-footlocker.html" class="proj-card">
+        <div class="proj-header">
+          <div class="proj-type">Data & Gamification</div>
+          <h3 class="proj-title">Jeu Foot Locker — Collecte de Données</h3>
+          <div class="proj-tech">
+            <span class="tech-item">Python</span>
+            <span class="tech-item">JavaScript</span>
+            <span class="tech-item">Data Collection</span>
+          </div>
+        </div>
+
+        <div class="proj-content">
+          <div class="doc-section">
+            <div class="doc-title">Contexte</div>
+            <p class="doc-text">
+              Foot Locker souhaitait engager sa communauté jeune à travers une expérience ludique tout en récupérant des
+              données qualifiées sur les préférences des utilisateurs. L'objectif était double : branding et
+              enrichissement CRM.
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <div class="doc-title">Rôle</div>
+            <p class="doc-text">
+              Développeur et Data Analyst. J'étais responsable de la conception technique du mini-jeu et de
+              l'architecture de collecte des données utilisateurs en arrière-plan.
+            </p>
+          </div>
+
+          <div class="doc-section">
+            <div class="doc-title">Processus</div>
+            <ul class="doc-list">
+              <li>Développement de l'interface jeu (HTML/JS).</li>
+              <li>Création de scripts Python pour structurer les données brutes (scores, temps de jeu, choix).</li>
+              <li>Mise en place de règles de confidentialité et nettoyage des entrées.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section">
+            <div class="doc-title">Résultats</div>
+            <ul class="doc-list">
+              <li>Engagement utilisateur supérieur à 3 minutes/session.</li>
+              <li>Base de données enrichie de +500 profils qualifiés.</li>
+              <li>Tableau de bord des préférences produits généré pour l'équipe marketing.</li>
+            </ul>
+          </div>
+        </div>
+      </a>
+
+      <!-- PROJET 2 -->
+      <a href="project-data-engineering.html" class="proj-card">
+        <div class="proj-header">
+          <div class="proj-type">Data Engineering</div>
+          <h3 class="proj-title">Nettoyage & Feature Engineering</h3>
+          <div class="proj-tech">
+            <span class="tech-item">Pandas</span>
+            <span class="tech-item">Python</span>
+          </div>
+        </div>
+        <div class="proj-content" style="grid-template-columns: 1fr;">
+          <p class="doc-text">
+            <strong>Contexte :</strong> Dataset brut contenant des incohérences majeures empêchant toute analyse
+            fiable.<br><br>
+            <strong>Intervention :</strong> Développement de pipelines de nettoyage automatisés sous Pandas. Traitement
+            des valeurs nulles, détection d'outliers et normalisation. Création de nouveaux indicateurs (KPIs) pour
+            évaluer la fiabilité technique des entrées.
+          </p>
+        </div>
+      </a>
+
+      <!-- PROJET 3 -->
+      <a href="project-scoring.html" class="proj-card">
+        <div class="proj-header">
+          <div class="proj-type">Modélisation</div>
+          <h3 class="proj-title">Score de Qualité Pondéré</h3>
+          <div class="proj-tech">
+            <span class="tech-item">Scikit-learn</span>
+            <span class="tech-item">Statistiques</span>
+          </div>
+        </div>
+        <div class="proj-content" style="grid-template-columns: 1fr;">
+          <p class="doc-text">
+            <strong>Objectif :</strong> Créer une métrique unique pour classer la performance de contenus
+            multimédias.<br><br>
+            <strong>Solution :</strong> Algorithme pondérant la Popularité (60%) et la Stabilité de l'audience (40%). Ce
+            score permet désormais de prioriser les contenus à forte rétention pour les campagnes publicitaires.
+          </p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CONTACT (03) -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Me Contacter</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">✦</span>
+          <span>07 83 89 16 89</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✦</span>
+          <span>khlifia381@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✦</span>
+          <span>Paris & Île-de-France</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✦</span>
+          <span>LinkedIn — Aymen KHLIFI</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="lang-item">
+          <div class="lang-header">
+            <span class="lang-name">Français</span>
+            <span class="lang-lvl">Langue maternelle</span>
+          </div>
+          <div class="lang-bar">
+            <div class="lang-fill" style="width:100%"></div>
+          </div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-header">
+            <span class="lang-name">Anglais</span>
+            <span class="lang-lvl">Intermédiaire</span>
+          </div>
+          <div class="lang-bar">
+            <div class="lang-fill" style="width:65%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="brand">AK.</div>
+    <span>© 2025 Aymen KHLIFI — Tous droits réservés.</span>
+    <span>Étudiant DATA & IA — HETIC Montreuil</span>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'fadeUp 0.8s ease forwards';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.skill-card, .proj-card, .contact-item, .lang-item').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
